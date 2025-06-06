@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ohana Diving - Uw specialist in duikopleidingen en duiktrips in Egypte. PADI-gecertificeerde duikcursussen, liveaboards en snorkeltours in Hurghada en Marsa Alam.">
+    <meta name="keywords" content="duiken Egypte, PADI cursus, duiktrips Hurghada, Marsa Alam, liveaboard, snorkelen, duikuitrusting huren">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ohanadiving.nl">
+    <title>Ohana Diving - Duikopleidingen & Duiktrips in Egypte</title>
+    <style>
+        :root {
+            --primary: #005f73;
+            --secondary: #f28482;
+            --background: #fdfaf6;
+            --text: #333;
+            --white: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .cta-primary {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .cta-secondary {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Ohana Diving</div>
+            <div class="nav-links">
+                <a href="#diensten">Diensten</a>
+                <a href="#over-ons">Over Ons</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ontdek de Onderwaterwereld van Egypte</h1>
+            <p>PADI-gecertificeerde duikopleidingen en onvergetelijke duiktrips in Hurghada en Marsa Alam</p>
+            <div class="cta-buttons">
+                <button class="cta-button cta-primary">Vraag vrijblijvend advies aan</button>
+                <button class="cta-button cta-secondary">Bel direct met onze duikplanner</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="diensten">
+        <h2>Onze Diensten</h2>
+        <div class="services">
+            <article class="service-card">
+                <img src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80" alt="PADI Duikopleidingen">
+                <h3>PADI Duikopleidingen</h3>
+                <p>Van Open Water tot Rescue Diver - Leer duiken van ervaren instructeurs</p>
+            </article>
+            <article class="service-card">
+                <img src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80" alt="Duiktrips en Liveaboards">
+                <h3>Duiktrips & Liveaboards</h3>
+                <p>Ontdek de mooiste duiklocaties in de Rode Zee</p>
+            </article>
+            <article class="service-card">
+                <img src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80" alt="Snorkel- en Dolfijnentours">
+                <h3>Snorkel- en Dolfijnentours</h3>
+                <p>Perfect voor het hele gezin</p>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ohana Diving. Alle rechten voorbehouden.</p>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Ohana Diving",
+        "url": "https://ohanadiving.nl",
+        "description": "PADI-gecertificeerde duikopleidingen en duiktrips in Egypte",
+        "areaServed": ["Egypte", "Nederland", "België"],
+        "location": {
+            "@type": "Place",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "Egypte",
+                "addressRegion": "Hurghada, Marsa Alam"
+            }
+        },
+        "offers": [
+            {
+                "@type": "Service",
+                "name": "PADI Duikopleidingen",
+                "description": "Van Open Water tot Rescue Diver"
+            },
+            {
+                "@type": "Service",
+                "name": "Duiktrips en Liveaboards",
+                "description": "Georganiseerde duiktrips in de Rode Zee"
+            },
+            {
+                "@type": "Service",
+                "name": "Snorkel- en Dolfijnentours",
+                "description": "Familievriendelijke snorkeltours"
+            }
+        ]
+    }
+    </script>
+</body>
+</html>
