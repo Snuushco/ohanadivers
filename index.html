@@ -38,6 +38,12 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: background 0.3s;
+        }
+
+        header.scrolled {
+            background: rgba(0, 95, 115, 0.95);
+            backdrop-filter: blur(10px);
         }
 
         nav {
@@ -62,31 +68,60 @@
             color: var(--white);
             text-decoration: none;
             transition: color 0.3s;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--secondary);
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                        url('https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&q=80') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: var(--white);
             padding: 0 1rem;
+            position: relative;
         }
 
         .hero-content {
             max-width: 800px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .cta-buttons {
@@ -102,7 +137,24 @@
             border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
         }
 
         .cta-primary {
@@ -117,12 +169,28 @@
 
         .cta-button:hover {
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         section {
-            padding: 4rem 1rem;
+            padding: 6rem 1rem;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 1rem auto;
         }
 
         .services {
@@ -137,6 +205,12 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
         }
 
         .service-card img {
@@ -147,24 +221,198 @@
             margin-bottom: 1rem;
         }
 
+        .testimonials {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 1rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: var(--white);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
         footer {
             background: var(--primary);
             color: var(--white);
-            padding: 2rem 1rem;
+            padding: 4rem 1rem;
             text-align: center;
         }
 
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
         @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                padding: 1rem;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .cta-buttons {
                 flex-direction: column;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
             }
         }
     </style>
@@ -173,9 +421,12 @@
     <header>
         <nav>
             <div class="logo">Ohana Diving</div>
+            <button class="mobile-menu-btn">☰</button>
             <div class="nav-links">
                 <a href="#diensten">Diensten</a>
                 <a href="#over-ons">Over Ons</a>
+                <a href="#gallery">Galerij</a>
+                <a href="#testimonials">Ervaringen</a>
                 <a href="#contact">Contact</a>
             </div>
         </nav>
@@ -193,7 +444,7 @@
     </section>
 
     <section id="diensten">
-        <h2>Onze Diensten</h2>
+        <h2 class="section-title">Onze Diensten</h2>
         <div class="services">
             <article class="service-card">
                 <img src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80" alt="PADI Duikopleidingen">
@@ -201,7 +452,7 @@
                 <p>Van Open Water tot Rescue Diver - Leer duiken van ervaren instructeurs</p>
             </article>
             <article class="service-card">
-                <img src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80" alt="Duiktrips en Liveaboards">
+                <img src="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&q=80" alt="Duiktrips en Liveaboards">
                 <h3>Duiktrips & Liveaboards</h3>
                 <p>Ontdek de mooiste duiklocaties in de Rode Zee</p>
             </article>
@@ -213,8 +464,107 @@
         </div>
     </section>
 
+    <section id="over-ons">
+        <h2 class="section-title">Over Ohana Diving</h2>
+        <div class="about-content">
+            <p>Bij Ohana Diving geloven we dat iedereen de magie van de onderwaterwereld moet kunnen ervaren. Met onze PADI-gecertificeerde instructeurs en jarenlange ervaring in Egypte, maken we uw duikavontuur onvergetelijk.</p>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&q=80" alt="Duiken in de Rode Zee">
+                    <div class="gallery-overlay">
+                        <h3>Rode Zee</h3>
+                        <p>Ontdek de kleurrijke onderwaterwereld</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80" alt="Duikcursus">
+                    <div class="gallery-overlay">
+                        <h3>PADI Cursussen</h3>
+                        <p>Leer duiken van ervaren instructeurs</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80" alt="Liveaboard">
+                    <div class="gallery-overlay">
+                        <h3>Liveaboards</h3>
+                        <p>Duik de mooiste locaties</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">Wat Onze Klanten Zeggen</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80" alt="Klant foto">
+                <h3>Sarah J.</h3>
+                <p>"Een onvergetelijke ervaring! De instructeurs waren professioneel en geduldig. De duiklocaties waren adembenemend."</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&q=80" alt="Klant foto">
+                <h3>Mark P.</h3>
+                <p>"Mijn PADI Open Water cursus was perfect georganiseerd. Ik voelde me veilig en goed begeleid."</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&q=80" alt="Klant foto">
+                <h3>Lisa M.</h3>
+                <p>"De liveaboard trip was het hoogtepunt van onze vakantie. Geweldige bemanning en prachtige duiklocaties!"</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Neem Contact Op</h2>
+        <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Naam</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Bericht</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="cta-button cta-primary">Verstuur</button>
+            </form>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2024 Ohana Diving. Alle rechten voorbehouden.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Ohana Diving</h3>
+                <p>Uw specialist in duikopleidingen en duiktrips in Egypte.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook">📘</a>
+                    <a href="#" title="Instagram">📸</a>
+                    <a href="#" title="WhatsApp">📱</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Snelle Links</h3>
+                <ul>
+                    <li><a href="#diensten">Diensten</a></li>
+                    <li><a href="#over-ons">Over Ons</a></li>
+                    <li><a href="#gallery">Galerij</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>📧 info@ohanadiving.nl</li>
+                    <li>📞 +31 6 12345678</li>
+                    <li>📍 Hurghada, Egypte</li>
+                </ul>
+            </div>
+        </div>
     </footer>
 
     <script type="application/ld+json">
@@ -251,6 +601,45 @@
             }
         ]
     }
+    </script>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Bedankt voor uw bericht! We nemen zo snel mogelijk contact met u op.');
+            contactForm.reset();
+        });
     </script>
 </body>
 </html>
