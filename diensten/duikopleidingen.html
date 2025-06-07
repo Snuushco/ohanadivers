@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duikopleidingen - Ohana Divers</title>
+    <style>
+        :root {
+            --primary: #1a1a1a;    /* Zwart */
+            --accent: #ff69b4;     /* Hot Pink */
+            --background: #f0f8ff; /* Light Blue */
+            --text: #000000;       /* Zwart */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('../static/images/onder_water_duiker_hero.png') center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .content {
+            padding: 4rem 0;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .course-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .course-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .course-card .price {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .course-card ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .course-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .course-card li:before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            padding-bottom: 75%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .gallery-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="../index.html" class="logo">
+                <img src="../static/images/logo_ohana.png" alt="Ohana Divers Logo">
+                Ohana Divers
+            </a>
+            <div class="nav-links">
+                <a href="../index.html#services">Diensten</a>
+                <a href="../index.html#testimonials">Ervaringen</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Duikopleidingen</h1>
+            <p>Word een gecertificeerde duiker met onze professionele opleidingen</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2>Onze Cursussen</h2>
+            <p>Bij Ohana Divers bieden we een compleet pakket aan duikopleidingen, van beginner tot professional. Onze ervaren instructeurs zorgen voor een veilige en plezierige leeromgeving.</p>
+
+            <div class="course-grid">
+                <div class="course-card">
+                    <h3>Open Water Diver</h3>
+                    <p>Je eerste duikbrevet</p>
+                    <div class="price">€499</div>
+                    <ul>
+                        <li>3-4 dagen training</li>
+                        <li>Theorie en praktijk</li>
+                        <li>Alle materialen inbegrepen</li>
+                        <li>Internationaal erkend brevet</li>
+                        <li>Maximaal 18 meter diepte</li>
+                    </ul>
+                </div>
+                <div class="course-card">
+                    <h3>Advanced Open Water</h3>
+                    <p>Verbreed je duikhorizon</p>
+                    <div class="price">€399</div>
+                    <ul>
+                        <li>2-3 dagen training</li>
+                        <li>5 specialisaties</li>
+                        <li>Dieper duiken (30m)</li>
+                        <li>Navigatie training</li>
+                        <li>Nachtduik ervaring</li>
+                    </ul>
+                </div>
+                <div class="course-card">
+                    <h3>Rescue Diver</h3>
+                    <p>Word een veiligheidsduiker</p>
+                    <div class="price">€599</div>
+                    <ul>
+                        <li>4-5 dagen training</li>
+                        <li>Reddingstechnieken</li>
+                        <li>Stress management</li>
+                        <li>Eerste hulp training</li>
+                        <li>Scenario's</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Specialties</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <h3>Wrakduiken</h3>
+                    <p>Ontdek scheepswrakken</p>
+                    <div class="price">€299</div>
+                </div>
+                <div class="course-card">
+                    <h3>Nachtduiken</h3>
+                    <p>Ervaar de nachtelijke onderwaterwereld</p>
+                    <div class="price">€299</div>
+                </div>
+                <div class="course-card">
+                    <h3>Onderwaterfotografie</h3>
+                    <p>Leer de beste foto's maken</p>
+                    <div class="price">€399</div>
+                </div>
+            </div>
+
+            <h2>Onze Instructeurs</h2>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="../static/images/onder_water_duiker_hero.png" alt="Instructeur 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="../static/images/onder_water_duiker_hero.png" alt="Instructeur 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="../static/images/onder_water_duiker_hero.png" alt="Instructeur 3">
+                </div>
+            </div>
+
+            <h2>Start Vandaag</h2>
+            <p>Ben je klaar om je duikavontuur te beginnen? Neem contact met ons op voor meer informatie over onze cursussen en beschikbaarheid.</p>
+            
+            <a href="../index.html#contact" class="cta-button">Start Je Opleiding</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Plan jouw duikavontuur vandaag nog!</p>
+            <p>Email: info@ohanadivers.nl</p>
+            <p>Tel: +31 (0)6 12345678</p>
+        </div>
+    </footer>
+</body>
+</html> 

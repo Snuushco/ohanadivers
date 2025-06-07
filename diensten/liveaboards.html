@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liveaboards - Ohana Divers</title>
+    <style>
+        :root {
+            --primary: #1a1a1a;    /* Zwart */
+            --accent: #ff69b4;     /* Hot Pink */
+            --background: #f0f8ff; /* Light Blue */
+            --text: #000000;       /* Zwart */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('../static/images/onder_water_duiker_hero.png') center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .content {
+            padding: 4rem 0;
+        }
+
+        .boat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .boat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .boat-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .boat-card .price {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .boat-card ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .boat-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .boat-card li:before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            padding-bottom: 75%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .gallery-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .schedule {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .schedule h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .schedule ul {
+            list-style: none;
+        }
+
+        .schedule li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .schedule li:before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="../index.html" class="logo">
+                <img src="../static/images/logo_ohana.png" alt="Ohana Divers Logo">
+                Ohana Divers
+            </a>
+            <div class="nav-links">
+                <a href="../index.html#services">Diensten</a>
+                <a href="../index.html#testimonials">Ervaringen</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Liveaboards</h1>
+            <p>Ervaar de ultieme duikavonturen op de Rode Zee</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2>Onze Liveaboards</h2>
+            <p>Ontdek de mooiste duiklocaties van de Rode Zee tijdens een onvergetelijke liveaboard ervaring. Onze luxe boten bieden comfort en avontuur in één.</p>
+
+            <div class="boat-grid">
+                <div class="boat-card">
+                    <h3>Brothers & Daedalus</h3>
+                    <p>7 dagen avontuur</p>
+                    <div class="price">€1.299</div>
+                    <ul>
+                        <li>Luxe accommodatie</li>
+                        <li>3-4 duiken per dag</li>
+                        <li>Volpension aan boord</li>
+                        <li>Professionele begeleiding</li>
+                        <li>Uitrusting inbegrepen</li>
+                    </ul>
+                </div>
+                <div class="boat-card">
+                    <h3>St. John's & Fury Shoals</h3>
+                    <p>5 dagen ontdekking</p>
+                    <div class="price">€899</div>
+                    <ul>
+                        <li>Comfortabele hutten</li>
+                        <li>2-3 duiken per dag</li>
+                        <li>Alle maaltijden</li>
+                        <li>Ervaren crew</li>
+                        <li>Foto/video service</li>
+                    </ul>
+                </div>
+                <div class="boat-card">
+                    <h3>Elphinstone & Marsa Alam</h3>
+                    <p>4 dagen ervaring</p>
+                    <div class="price">€699</div>
+                    <ul>
+                        <li>Moderne faciliteiten</li>
+                        <li>2 duiken per dag</li>
+                        <li>Snorkel mogelijkheden</li>
+                        <li>Lokale gidsen</li>
+                        <li>Transfer service</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Dagelijkse Planning</h2>
+            <div class="schedule">
+                <h3>Typische dag aan boord</h3>
+                <ul>
+                    <li>06:30 - Vroege ochtendduik</li>
+                    <li>08:00 - Ontbijt</li>
+                    <li>10:30 - Tweede duik</li>
+                    <li>12:30 - Lunch</li>
+                    <li>15:00 - Derde duik</li>
+                    <li>17:00 - Snacks en ontspanning</li>
+                    <li>19:00 - Diner</li>
+                    <li>20:00 - Nachtduik (optioneel)</li>
+                </ul>
+            </div>
+
+            <h2>Onze Boten</h2>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="../static/images/onder_water_duiker_hero.png" alt="Boat 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="../static/images/onder_water_duiker_hero.png" alt="Boat 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="../static/images/onder_water_duiker_hero.png" alt="Boat 3">
+                </div>
+            </div>
+
+            <h2>Boek Je Avontuur</h2>
+            <p>Ben je klaar voor een onvergetelijke liveaboard ervaring? Neem contact met ons op voor meer informatie over beschikbaarheid en reserveringen.</p>
+            
+            <a href="../index.html#contact" class="cta-button">Reserveer Nu</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Plan jouw duikavontuur vandaag nog!</p>
+            <p>Email: info@ohanadivers.nl</p>
+            <p>Tel: +31 (0)6 12345678</p>
+        </div>
+    </footer>
+</body>
+</html> 
